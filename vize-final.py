@@ -20,7 +20,7 @@ final_entry.pack()
 
 def hesapla():
     try:
-        vize=float(vize_entry.get()) # kullanıcıdan alınan veriyi
+        vize=float(vize_entry.get()) # kullanıcıdan alınan veriyi hesaplamak için;
         final=float(final_entry.get())
         ortalama = (vize * 0.4) + (final * 0.6)
 
@@ -28,11 +28,11 @@ def hesapla():
         # Öncelikli kural: Final notu 50'den düşükse kalır.
         if final < 50:
             sonuc_label.config(text=f"Ortalama: {ortalama:.2f}\nFinal notu 50'den düşük olduğu için Kaldınız!", fg="red")
-            harf_label.config(text="Harf Notu: FF") # Finalden kalınca harf notu FF olur.
-        # Final notu yeterliyse, ortalamaya bakılır.
+            harf_label.config(text="Harf Notu: FF") 
+        
         elif ortalama >= 50:
             sonuc_label.config(text=f"Ortalama: {ortalama:.2f}\nGeçtiniz!", fg="green")
-            # --- 2. HARF NOTUNU HESAPLA VE GÖSTER ---
+           
             if ortalama >= 88: harf = "AA"
             elif ortalama >= 81: harf = "BA"
             elif ortalama >= 74: harf = "BB"
@@ -55,7 +55,7 @@ def hesapla():
         harf_label.config(text="") # Hata durumunda harf notunu temizle
 
 # Hesapla Butonu
-hesapla_button = tk.Button(root, text="Hesapla", command=hesapla)
+hesapla_button = tk.Button(root, text="Hesapla", command=hesapla) #Def fonksiyonundan alınan verileri burada hesaplamaka için kullanılan button
 hesapla_button.pack()
 
 # Sonuç etiketini fonksiyonun dışında, başta sadece bir kere oluşturuyoruz.
@@ -69,4 +69,5 @@ harf_label.pack()
 
 
 root.mainloop()
+
      
